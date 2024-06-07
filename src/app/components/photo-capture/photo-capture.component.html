@@ -1,0 +1,19 @@
+<div class="photo-capture">
+  <div class="webcam-container" *ngIf="showWebcam">
+    <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)">
+    </webcam>
+  </div>
+
+  <div class="image-container" *ngIf="!showWebcam && webcamImage">
+    <img [src]="webcamImage.imageAsDataUrl" alt="Gambar dari Webcam" />
+  </div>
+
+  <button
+    mat-button
+    type="button"
+    (click)="triggerSnapshot()"
+    [disabled]="webcamImage"
+  >
+    Ambil Gambar
+  </button>
+</div>

@@ -1,0 +1,59 @@
+.app {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: #1b1b1b;
+  }
+
+  .table-header {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+
+    .table-cell {
+      flex: 1;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nik {
+      flex: 0.5;
+    }
+  }
+
+  .table-row {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+
+    .table-cell {
+      flex: 1;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      width: 50%;
+    }
+
+    .nik {
+      flex: 0.5;
+    }
+  }
+}

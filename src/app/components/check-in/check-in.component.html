@@ -1,0 +1,44 @@
+<div class="check-in">
+  <h1 mat-dialog-title>Check In</h1>
+  <div mat-dialog-content class="content">
+    <form>
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Nama"
+          formControlName="name"
+          [matAutocomplete]="auto"
+          (input)="onInputChange($event)"
+        />
+        <mat-autocomplete
+          #auto="matAutocomplete"
+          (optionSelected)="onOptionSelected($event)"
+        >
+          <mat-option
+            *ngFor="let employee of employees$ | async"
+            [value]="employee.name"
+          >
+            {{ employee.nik }} || {{ employee.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-form-field class="mat-select-custom">
+        <mat-label>Check In Option</mat-label>
+        <mat-select (selectionChange)="onCioSelectionChange($event)">
+          <mat-option *ngFor="let cio of cios" [value]="cio">
+            {{ cio.type }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <photo-capture (capturedImage)="receiveData($event)"></photo-capture>
+    </form>
+  </div>
+  <map-picker
+    (coordinatesSelected)="onCoordinatesSelected($event)"
+  ></map-picker>
+  <button type="button" (click)="getLocation()">Use Current Location</button>
+  <div mat-dialog-actions class="action">
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="onSaveClick()">Save</button>
+  </div>
+</div>
